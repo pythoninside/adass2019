@@ -1,5 +1,5 @@
 # RIDICULOUSLY ADVANCED PYTHON
-## _Advanced Python Training At EuroPython 2018_
+## _Advanced Python Training At ADASS 2019_
 ### _Francesco Pierfederici_
 
 If you have been using Python for some time already and want to reach new heights in your language mastery, this training session is for you!

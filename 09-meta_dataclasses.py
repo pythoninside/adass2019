@@ -2,7 +2,20 @@ from dataclasses import dataclass
 from math import pi
 
 
-class TypeChecker:
+class TypeCheckerMeta(type):
+    checkers = {}
+
+    def __new__(meta, name, bases, dct):
+        if 'required_type' not in dct:
+            return super().__new__(meta, name, bases, dct)
+
+        typ = dct['required_type']
+        if typ not in meta.checkers:
+            meta.checkers[typ] = super().__new__(meta, name, bases, dct)
+        return meta.checkers[typ]
+
+
+class TypeChecker(metaclass=TypeCheckerMeta):
     required_type = object
 
     def __init__(self, name=None):
